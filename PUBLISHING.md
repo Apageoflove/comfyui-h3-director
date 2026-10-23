@@ -1,43 +1,46 @@
-# 发布到 GitHub 的步骤
+# 发布记录与维护指南
 
-本地已经是一个可直接推送的仓库（`git init` + 首次提交在插件迁入 H 盘后执行）。
+## 当前状态（2026-10-23）
 
-## 1. 建仓库
+v0.1.0 已发布：
 
-```bash
-gh repo create comfyui-h3-director --public \
-  --description "ComfyUI integration for H3 Director's Desk: status, film submission and an embedded panel, plus a deployable service copy."
-```
+| 项 | 值 |
+|---|---|
+| 仓库 | https://github.com/Apageoflove/comfyui-h3-director |
+| 标签 | [`v0.1.0`](https://github.com/Apageoflove/comfyui-h3-director/releases/tag/v0.1.0) |
+| 许可 | MIT |
+| 仓库描述 | ComfyUI sidebar panel + 3 nodes for the H3 Director's Desk video pipeline, with a deployable service copy. |
+| Topics（16） | comfyui · comfyui-nodes · comfyui-plugin · custom-nodes · minimax-h3 · minimax · h3 · video-generation · ai-video · video-pipeline · video-subtitles · faster-whisper · jev · automation · local-deployment · 8gb-vram |
+| ComfyUI Registry | 未上架（步骤见下） |
 
-或者网页新建空仓库，然后：
+## 后续版本发布流程（v0.1.x）
 
-```bash
-git remote add origin https://github.com/<你的账号>/comfyui-h3-director.git
-git branch -M main
-git push -u origin main
-```
+1. 本地仓库：`H:\h3cache\comfyui-h3-director`（H 盘为 exFAT，git 命令需带 `-c safe.directory='*'`）
+2. 改动 → 单测：`python -m unittest discover -s tests -v`
+3. 提交（用账号邮箱，贡献图才计绿格）：
+   ```bash
+   git -c safe.directory='*' -c user.name=Apageoflove -c user.email=zh13246570@gmail.com commit -am "..."
+   git -c safe.directory='*' push origin main
+   ```
+4. 打标签发布：
+   ```bash
+   git -c safe.directory='*' tag v0.1.x
+   git -c safe.directory='*' push origin v0.1.x
+   ```
+5. GitHub 网页 [releases/new](https://github.com/Apageoflove/comfyui-h3-director/releases/new) 选刚推的标签，填标题与说明，Publish（可选附 zip：右键插件目录打包，排除 `.git\` 与 `.token-optimizer\`）
+6. 仓库描述 / Topics 修改：仓库页 About 齿轮，或 API（本机凭据已存于 Git Credential Manager）
 
-## 2. 仓库设置建议
+## ComfyUI Registry 上架（可选）
 
-- Topics：`comfyui` `comfyui-nodes` `h3` `minimax` `video-generation` `pipeline`
-- 关闭 Wiki（文档都在 README）
-- Release：`v0.1.0`，附 `comfyui-h3-director-v0.1.0.zip`（整个插件目录打包）
-
-## 3. 上架 ComfyUI Registry（可选）
-
-1. 在 https://registry.comfy.org 注册 publisher，拿到 `PublisherId`
+1. 在 https://registry.comfy.org 注册 publisher，取得 `PublisherId`
 2. 填进 `pyproject.toml` 的 `[tool.comfy] PublisherId`
-3. 安装 `comfy-cli` 后执行：
+3. `comfy node publish`
 
-```bash
-comfy node publish
-```
-
-## 4. 发布前自查
+## 发布前自查（每次发版过一遍）
 
 - [ ] `python -m unittest discover -s tests -v` 全绿
-- [ ] `config.json` 没有被提交（`.gitignore` 已忽略）
-- [ ] README 里的截图存在且为真实截图
-- [ ] 仓库不含任何模型权重、密钥、个人路径
-- [ ] LICENSE 年份/署名确认
-- [ ] 在干净的 ComfyUI 环境里装一次，确认只新增侧栏和 3 个节点，不影响原有工作流
+- [ ] `config.json` 未被提交（`.gitignore` 已忽略）
+- [ ] README 截图引用与 `docs/screenshots/` 文件一一对应
+- [ ] 无模型权重、密钥、个人路径混入（`git ls-files | grep -iE "key|token|secret"` 复查）
+- [ ] 版本号三处同步：`version.py`、`pyproject.toml`、标签
+- [ ] 在干净环境装一次，确认只新增侧栏与 3 个节点，不影响既有工作流

@@ -284,16 +284,19 @@ curl http://127.0.0.1:8898/status    # 返回 200 与 JSON 即在线；控制台
 ### 6.1 三种安装方式
 
 ```bash
-# A. ComfyUI-Manager（推荐）：Manager → Install via Git URL → 填 <本仓库地址> → 重启 ComfyUI
+# A. ComfyUI-Manager（推荐）：Manager → Install via Git URL → 填
+#    https://github.com/Apageoflove/comfyui-h3-director → 重启 ComfyUI
 
 # B. 手动克隆
 cd <你的ComfyUI>/custom_nodes
-git clone <本仓库地址> comfyui-h3-director
+git clone https://github.com/Apageoflove/comfyui-h3-director.git
 # 重启 ComfyUI
 
 # C. 开发模式（软链接，管理员 cmd）
 mklink /D "<你的ComfyUI>\custom_nodes\comfyui-h3-director" "<本仓库路径>"
 ```
+
+> 本仓库已发布在 [GitHub](https://github.com/Apageoflove/comfyui-h3-director)（标签 [v0.1.0](https://github.com/Apageoflove/comfyui-h3-director/releases/tag/v0.1.0)）；ComfyUI Registry 上架见 [PUBLISHING.md](PUBLISHING.md)。以 zip 包形式拿到仓库时，用方式 C 软链安装。
 
 重启后：节点面板 **H3/Director** 分类出现三个节点，左侧栏出现「H3 制片台」。
 
