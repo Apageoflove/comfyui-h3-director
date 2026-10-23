@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """ComfyUI 节点：H3 导演台状态 / 提交长片 / 最近交付。
 
-设计约束（零侵入）：
+设计约束（与现有环境隔离）：
 - 不 import folder_paths，不碰 ComfyUI 内部状态；
 - 只读导演台公开 HTTP 接口，或向用户配置的 raw_dir 原子写 film.json；
 - 所有异常转成清晰的 RuntimeError，绝不让 ComfyUI 崩溃。

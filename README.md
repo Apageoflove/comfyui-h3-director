@@ -8,11 +8,11 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![ComfyUI](https://img.shields.io/badge/ComfyUI-0.3%2B-8A2BE2)
 ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
-![Models](https://img.shields.io/badge/Models-%E4%B8%8D%E9%9A%8F%E9%99%84-important)
+![Models](https://img.shields.io/badge/Models-Not_Included-important)
 
 *从「能生成」到「能生产」：ComfyUI 负责出片，导演台负责发现任务、编排阶段、监控与交付，本仓库提供两者之间的全部集成胶水。*
 
-**六阶段单条流水线** · **五阶段长片流水线** · **8GB 显存实测（0.3MP / 15s）** · **零侵入 ComfyUI**
+**六阶段单条流水线** · **五阶段长片流水线** · **8GB 显存实测（0.3MP / 15s）** · **MIT 开源**
 
 </div>
 
@@ -40,7 +40,7 @@
 | ComfyUI 集成层插件：侧栏面板 + 状态 / 最近交付 / 提交长片三个节点 | 不是视频生成模型——**不含任何模型权重**（约 85GB，见第 4 章清单） |
 | 导演台服务的可部署副本（与原件逐字节一致，md5 见 [§5](#5-部署导演台服务)） | 不是常驻服务进程——仓库不包含、也不会代为启动任何服务 |
 | 导演台与 ComfyUI 的协作约定（raw 目录 + HTTP 接口） | 不接管 ComfyUI 队列、不 hook 采样器、不修改 ComfyUI 主程序 |
-| 面向 Windows 单机的部署手册（本文） | 不在任何读者机器上执行过生成——文中全部实测数据来自开发机，需自行验证 |
+| 面向 Windows 单机的部署手册（本文） | 文档与实测数据——文中数据来自开发机环境，其他环境请自行验证 |
 
 ---
 
@@ -48,21 +48,18 @@
 
 <table>
 <tr>
-<td width="50%"><img src="docs/screenshots/01_导演台首页.png" alt="导演台首页"/><sub>导演台控制台（127.0.0.1:8898）：制作中 / 排队 / 已交付统计与任务搜索</sub></td>
-<td width="50%"><img src="docs/screenshots/04_单条六阶段.png" alt="单条六阶段"/><sub>单条视频六阶段详情：语义决策 → 帧率重构 → 字幕合成 → 质量评估 → 配乐混音 → 交付归档</sub></td>
+<td width="50%"><img src="docs/screenshots/console-home.png" alt="导演台首页"/><sub>导演台控制台（127.0.0.1:8898）：制作中 / 排队 / 已交付统计与任务搜索</sub></td>
+<td width="50%"><img src="docs/screenshots/six-stages.png" alt="单条六阶段"/><sub>单条视频六阶段详情：语义决策 → 帧率重构 → 字幕合成 → 质量评估 → 配乐混音 → 交付归档</sub></td>
 </tr>
 <tr>
-<td width="50%"><img src="docs/screenshots/05_长片16段交付.png" alt="长片16段交付"/><sub>16 段长片逐段交付页：分段网格、逐段质检结论、整片下载</sub></td>
-<td width="50%"><img src="docs/screenshots/02_已完成长片与分段.png" alt="已完成长片与分段"/><sub>已交付列表：成片条目、质检状态、下载与删除</sub></td>
+<td width="50%"><img src="docs/screenshots/long-film-delivery.png" alt="长片16段交付"/><sub>16 段长片逐段交付页：分段网格、逐段质检结论、整片下载</sub></td>
+<td width="50%"><img src="docs/screenshots/delivered-list.png" alt="已交付列表"/><sub>已交付列表：成片条目、质检状态、下载与删除</sub></td>
 </tr>
 <tr>
-<td width="50%"><img src="docs/screenshots/06_嵌入ComfyUI侧栏.png" alt="嵌入ComfyUI侧栏"/><sub>本插件把导演台嵌入 ComfyUI 侧栏「H3 制片台」</sub></td>
-<td width="50%"><img src="docs/screenshots/07_ComfyUI导演台入口.png" alt="ComfyUI导演台入口"/><sub>ComfyUI 节点面板：H3/Director 分类下的三个节点</sub></td>
+<td width="50%"><img src="docs/screenshots/comfyui-sidebar.png" alt="嵌入ComfyUI侧栏"/><sub>本插件把导演台嵌入 ComfyUI 侧栏「H3 制片台」</sub></td>
+<td width="50%"><img src="docs/screenshots/comfyui-nodes.png" alt="ComfyUI节点"/><sub>ComfyUI 节点面板：H3/Director 分类下的三个节点</sub></td>
 </tr>
 </table>
-
-> [!NOTE]
-> 截图编号沿用原始截图集，03 号无对应文件未收录，`docs/screenshots/` 实际 6 张，全部为本机真实运行截图。
 
 ---
 
@@ -108,7 +105,7 @@
 | turbo LoRA · Ref2V 4 步 | `minimax_h3_ref2v_turbo_4step_v0.1_comfyui_bf16.safetensors` | bf16 | 1.8 GB |
 
 > [!NOTE]
-> 两个 turbo LoRA 字节数完全相同（均为 1,956,193,000）——已对开发机实际文件逐一核对，并非表格笔误。
+> 两个 turbo LoRA 的字节数相同（1,956,193,000），已对实际文件逐一核对。
 
 ### 4.2 必需：决策与字幕（约 9GB）
 
@@ -328,7 +325,7 @@ mklink /D "<你的ComfyUI>\custom_nodes\comfyui-h3-director" "<本仓库路径>"
 | `H3DirectorLastResult` 最近交付 | `file / verdict / font / bgm / mood / download_url / raw_json` | 只读最近一次交付，适合接通知或归档 |
 | `H3DirectorSubmitFilm` 提交长片 | `film_json` / `message` | 原子写 `<片名>.film.json` 到 `raw_dir`；不等待生成完成 |
 
-### 6.4 零侵入保证
+### 6.4 对现有 ComfyUI 环境的影响
 
 | 风险点 | 约束 |
 |---|---|
@@ -396,7 +393,7 @@ copy "<本仓库路径>\examples\film.example.json" "<你的RAW目录>\我的第
 
 ## 8. 设计与实现
 
-本章将导演台（约 3200 行）的设计事实按主题归类；行号引用均指 `service/video_pipeline.py` 副本。标注「说明.md」等出处的是开发机设计文档，不随本仓库分发，仅用于交代结论来源。
+本章将导演台（约 3200 行）的设计按主题归类，行号引用均指 `service/video_pipeline.py`。
 
 ### 8.1 总体架构：生成与编排分离
 
@@ -543,13 +540,10 @@ Get-CimInstance Win32_Process -Filter "Name='pythonw.exe' or Name='python.exe'" 
 **Q11：JEV 从哪下载？**
 粘合脚本在 `service/jev/`（仓库自带）；模型与运行时均在 [NeoHorse-Jev-4B](https://huggingface.co/TokenRhythm/NeoHorse-Jev-4B) 发布包；依赖清单见 §5.2 第五步。装好后修改脚本 `MODEL_DIR` 与 `video_pipeline.py:49-51、:63` 四个常量。
 
-**Q12：为什么截图编号没有 03？**
-编号沿用原始截图集，03 号无对应文件未收录，非漏链。
-
-**Q13：模型放哪了 ComfyUI 找不到？**
+**Q12：模型放哪了 ComfyUI 找不到？**
 见 §4.5：文件必须落入四个标准子目录（或经 `extra_model_paths.yaml` 映射），文件名与工作流引用一致。
 
-**Q14：这套东西的吞吐上限？**
+**Q13：这套东西的吞吐上限？**
 8GB 显存下 H3 单段 15s 约 30 分钟量级（0.3MP、turbo 档），导演台串行编排不改变该上限；吞吐由生成端决定，编排端的职责是无人值守与失败恢复。
 
 </details>

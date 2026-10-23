@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "comfyui-h3-director"
 version = "0.1.0"
-description = "ComfyUI integration for H3 Director's Desk: status, film submission and an embedded panel, with zero impact on existing workflows."
+description = "ComfyUI integration for H3 Director's Desk: status, film submission and an embedded panel, plus a deployable service copy."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }

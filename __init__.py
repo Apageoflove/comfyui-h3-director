@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """ComfyUI-H3Director —— 把 H3 导演台作为 ComfyUI 插件接入的最小实现。
 
-零侵入约定：
+与现有环境的约定：
 - 只使用 ComfyUI 公开扩展点：NODE_CLASS_MAPPINGS / WEB_DIRECTORY / PromptServer.routes；
 - 不 monkey-patch 队列、采样器或任何现有节点；
 - 不写入 ComfyUI 安装目录；配置与缓存都在插件目录或用户指定的 raw_dir；

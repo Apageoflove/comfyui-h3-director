@@ -6,7 +6,7 @@
 
 ```bash
 gh repo create comfyui-h3-director --public \
-  --description "ComfyUI integration for H3 Director's Desk: status, film submission and an embedded panel, zero impact on existing workflows."
+  --description "ComfyUI integration for H3 Director's Desk: status, film submission and an embedded panel, plus a deployable service copy."
 ```
 
 或者网页新建空仓库，然后：
