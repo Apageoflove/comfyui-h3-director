@@ -25,7 +25,7 @@
 | [1. 定位：是什么 / 不是什么](#1-定位是什么--不是什么) | [2. 效果总览](#2-效果总览) | [3. 环境要求](#3-环境要求) |
 | [4. 模型与组件清单](#4-模型与组件清单) | [5. 部署导演台服务](#5-部署导演台服务) | [6. 安装本插件](#6-安装本插件) |
 | [7. 第一次闭环](#7-第一次闭环) | [8. 设计与实现](#8-设计与实现) | [9. 边界与许可](#9-边界与许可) |
-| [10. FAQ 与目录结构](#10-faq-与目录结构) | | |
+| [10. FAQ 与目录结构](#10-faq-与目录结构) | [许可证](#许可证) | |
 
 ---
 
@@ -585,3 +585,36 @@ comfyui-h3-director/
 *本仓库仅包含集成层插件与导演台服务的可部署副本，不包含 H3 模型权重，也不包含任何运行中的服务进程。*
 
 </div>
+
+---
+
+## 许可证
+
+本项目采用 **MIT License**，与仓库根目录的 [LICENSE](LICENSE) 文件内容一致：
+
+```text
+MIT License
+
+Copyright (c) 2026 Devin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+> 模型权重与第三方组件各有独立许可（见 [§4 模型清单](#4-模型与组件清单)、[§9 边界与许可](#9-边界与许可)）：MIT 仅覆盖本仓库代码本身；H3 权重遵循 [Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3) 的发布条款，JEV 遵循 [NeoHorse-Jev-4B](https://huggingface.co/TokenRhythm/NeoHorse-Jev-4B)（Apache-2.0），商用前请自行核对各模型条款。
+
