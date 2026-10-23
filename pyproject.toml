@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfyui-h3-director"
+version = "0.1.0"
+description = "ComfyUI integration for H3 Director's Desk: status, film submission and an embedded panel, with zero impact on existing workflows."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Devin" }]
+keywords = ["comfyui", "h3", "video", "pipeline", "minimax"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI H3 Director"
+Icon = ""

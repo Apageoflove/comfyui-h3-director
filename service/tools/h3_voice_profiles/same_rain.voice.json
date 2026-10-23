@@ -1,0 +1,270 @@
+{
+ "version": 1,
+ "profile": "same_rain",
+ "film": "同一场雨",
+ "guard_profile": "D:/H3DirectorDesk/tools/h3_guard_profiles/same_rain.guard.json",
+ "engine": {
+  "name": "seed-vc",
+  "python": "H:\\MusicAI\\envs\\seedvc\\Scripts\\python.exe",
+  "app": "H:\\MusicAI\\apps\\seed-vc",
+  "checkpoints": "H:\\MusicAI\\apps\\seed-vc\\checkpoints",
+  "f0_condition": true,
+  "auto_f0_adjust": false,
+  "diffusion_steps": 25,
+  "fp16": true
+ },
+ "audio": {
+  "sample_rate": 48000,
+  "channels": 2,
+  "loudnorm": "I=-16:TP=-1.5:LRA=11"
+ },
+ "gate": {
+  "duration_tol_s": 0.05,
+  "text_similarity_min": 0.9,
+  "peak_dbfs_max": -0.5
+ },
+ "characters": {
+  "张艺果": {
+   "f0_range": [
+    165,
+    320
+   ],
+   "gender": "female",
+   "aliases": [
+    "她",
+    "果果",
+    "张老师"
+   ],
+   "voice_desc": "清亮偏轻的少女音，日常音量偏小，气声多，语速中等偏快",
+   "voice_ref": "H:/h3cache/h3_cache/voice_refs/same_rain/zhangyiguo_seg03.wav",
+   "ref_source": "H:/h3cache/Video/drama_rain/clips/seg_03.mp4",
+   "ref_source_range": [
+    4.5,
+    9.6
+   ],
+   "ref_status": "ok",
+   "ref_f0_median": 228.75
+  },
+  "陈屿": {
+   "f0_range": [
+    80,
+    165
+   ],
+   "gender": "male",
+   "aliases": [
+    "他",
+    "陈宇",
+    "屿"
+   ],
+   "voice_desc": "低沉偏沙的青年男声，语速慢，句尾常带一点自嘲的气音",
+   "voice_ref": "H:/h3cache/h3_cache/voice_refs/same_rain/chenyu.wav",
+   "ref_source": "H:/h3cache/Video/drama_rain/clips/seg_07.mp4",
+   "ref_source_range": [
+    0.2,
+    9.8
+   ],
+   "ref_status": "ok",
+   "ref_f0_median": 94.59
+  },
+  "妈妈": {
+   "f0_range": [
+    150,
+    280
+   ],
+   "gender": "female",
+   "aliases": [
+    "母亲"
+   ],
+   "voice_desc": "温柔偏哑的中年女声，音量不大，字字用力",
+   "voice_ref": null,
+   "ref_source": null,
+   "ref_source_range": null,
+   "ref_status": "missing_no_single_speaker_clip",
+   "ref_f0_median": null
+  },
+  "同学": {
+   "f0_range": [
+    150,
+    320
+   ],
+   "gender": "female",
+   "aliases": [
+    "同桌"
+   ],
+   "voice_desc": "清亮少女音，语速快，尾音上扬",
+   "voice_ref": null,
+   "ref_source": null,
+   "ref_source_range": null,
+   "ref_status": "missing_no_single_speaker_clip",
+   "ref_f0_median": null
+  }
+ },
+ "segments": {
+  "1": {
+   "speakers": [
+    "张艺果",
+    "同学"
+   ],
+   "start_frame": "KF01_教室刷题.png",
+   "costume": {
+    "张艺果": "school_uniform",
+    "同学": "school_uniform"
+   }
+  },
+  "2": {
+   "speakers": [
+    "张艺果",
+    "同学"
+   ],
+   "start_frame": "KF02_走廊背影.png",
+   "costume": {
+    "张艺果": "school_uniform",
+    "同学": "school_uniform"
+   }
+  },
+  "3": {
+   "speakers": [
+    "张艺果",
+    "妈妈"
+   ],
+   "start_frame": "KF03_深夜台灯.png",
+   "costume": {
+    "张艺果": "light_homewear",
+    "妈妈": "homewear_knit"
+   }
+  },
+  "4": {
+   "speakers": [
+    "张艺果",
+    "妈妈"
+   ],
+   "start_frame": "KF04_客厅僵局.png",
+   "costume": {
+    "张艺果": "homewear",
+    "妈妈": "homewear_knit"
+   }
+  },
+  "5": {
+   "speakers": [
+    "张艺果",
+    "陈屿"
+   ],
+   "start_frame": "KF05_手机提问.png",
+   "costume": {
+    "张艺果": "screen_only"
+   }
+  },
+  "6": {
+   "speakers": [
+    "陈屿"
+   ],
+   "start_frame": "KF06_出租屋.png",
+   "costume": {
+    "陈屿": "gray_hoodie"
+   }
+  },
+  "7": {
+   "speakers": [
+    "陈屿"
+   ],
+   "start_frame": "KF07_早高峰地铁.png",
+   "costume": {
+    "陈屿": "white_shirt"
+   }
+  },
+  "8": {
+   "speakers": [
+    "张艺果",
+    "陈屿"
+   ],
+   "start_frame": "KF08_讲题屏幕.png",
+   "costume": {
+    "张艺果": "screen_only"
+   }
+  },
+  "9": {
+   "speakers": [
+    "张艺果",
+    "陈屿"
+   ],
+   "start_frame": "KF09_分屏晚安.png",
+   "costume": {
+    "张艺果": "pink_homewear",
+    "陈屿": "gray_hoodie"
+   }
+  },
+  "10": {
+   "speakers": [
+    "妈妈",
+    "张艺果"
+   ],
+   "start_frame": "KF10_妈妈翻手机.png",
+   "costume": {
+    "张艺果": "white_top_blue_pants",
+    "妈妈": "homewear_knit"
+   }
+  },
+  "11": {
+   "speakers": [
+    "陈屿"
+   ],
+   "start_frame": "KF11_拒收消息.png",
+   "costume": {
+    "陈屿": "gray_hoodie"
+   }
+  },
+  "12": {
+   "speakers": [
+    "张艺果"
+   ],
+   "start_frame": "KF12_雨夜窗.png",
+   "costume": {
+    "张艺果": "school_uniform"
+   }
+  },
+  "13": {
+   "speakers": [
+    "张艺果",
+    "陈屿"
+   ],
+   "start_frame": "KF13_消息亮起.png",
+   "costume": {
+    "张艺果": "light_homewear"
+   }
+  },
+  "14": {
+   "speakers": [
+    "张艺果",
+    "陈屿"
+   ],
+   "start_frame": "KF14_学习计划.png",
+   "costume": {
+    "张艺果": "homewear_thick",
+    "陈屿": "white_shirt"
+   }
+  },
+  "15": {
+   "speakers": [
+    "张艺果",
+    "陈屿"
+   ],
+   "start_frame": "KF15_黄昏通话.png",
+   "costume": {
+    "张艺果": "school_uniform",
+    "陈屿": "white_shirt_coat"
+   }
+  },
+  "16": {
+   "speakers": [
+    "张艺果",
+    "陈屿"
+   ],
+   "start_frame": "KF16_雨后远景.png",
+   "costume": {
+    "张艺果": "school_uniform",
+    "陈屿": "dark_long_coat"
+   }
+  }
+ },
+ "notes": "参考音只从 guard 明确单说话人的 clips 提取；妈妈/同学无单说话人素材，voice_ref=null，转换时跳过，不猜。"
+}

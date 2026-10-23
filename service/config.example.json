@@ -1,0 +1,27 @@
+{
+  "_说明": "这是 dialogue.json 的示例副本。正式部署时把它放到 程序目录/dialogue.json（与 video_pipeline.py 同目录的上级，即常量 DL 指向的目录）。同名 <视频名>.dialogue.json 放在 raw 目录可按片覆盖。除 lines/style/lang 外其余键均可省略，省略时走代码默认值。",
+
+  "lang": "zh",
+  "style": "温柔娇气的女友日常，粉色洛丽塔，阳光窗边，唯美生活感",
+  "duration": 5,
+  "interpolate": "auto",
+  "font": "雅黑",
+  "bgm": null,
+  "mood": null,
+  "lines": [
+    { "top": "", "bottom": "哼～你终于来啦！" },
+    { "top": "", "bottom": "人家可是等了好久了哦？" },
+    { "top": "", "bottom": "再迟到的话，我就要生气啦！哼！" }
+  ],
+
+  "_键说明": {
+    "lang": "语言，默认 zh",
+    "style": "视频风格描述（提示词），传给 ComfyUI/H3 生成",
+    "duration": "单片时长（秒）",
+    "interpolate": "帧率重构开关：auto/on/off",
+    "font": "字幕字体，可选：雅黑/黑体/楷体/宋体/仿宋/隶书（对应 C:\\Windows\\Fonts 下的字体文件）",
+    "bgm": "手动指定配乐文件名（在 BGM_DIRS 曲库目录中检索）；null=交给 JEV 自动判定",
+    "mood": "配乐情绪：upbeat/epic/gentle/tense；无现成曲时按此情绪用 ACE-Step 生成",
+    "lines": "台词字幕数组；top=顶部横幅，bottom=底部字幕；可只填 bottom"
+  }
+}

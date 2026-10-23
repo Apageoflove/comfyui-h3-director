@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "film": "同一场雨",
+  "voice_profile": "H:/H3DirectorDesk/tools/h3_voice_profiles/same_rain.voice.json",
+  "characters": {
+    "张艺果": {
+      "aliases": ["她", "果果", "张老师"],
+      "identity": "18岁中国高三女生，深棕色齐刘海长直发，清秀文静，鹅蛋脸，眼睛清澈，鼻子小巧，皮肤白皙",
+      "voice": "清亮偏轻的少女音，日常音量偏小，气声多，语速中等偏快",
+      "f0_range": [165, 320],
+      "face_ref": "H:/h3cache/Video/drama_rain/keyframes/CS1_张艺果定妆.png"
+    },
+    "陈屿": {
+      "aliases": ["他", "陈宇", "屿"],
+      "identity": "23岁中国上班族男生，黑色短发，黑框眼镜，清瘦，鼻梁挺直，白衬衫",
+      "voice": "低沉偏沙的青年男声，语速慢，句尾常带一点自嘲的气音",
+      "f0_range": [80, 165],
+      "face_ref": "H:/h3cache/Video/drama_rain/keyframes/CS2_陈屿定妆.png"
+    },
+    "妈妈": {
+      "aliases": ["母亲"],
+      "identity": "40多岁中国母亲，头发简单束起，穿家居针织衫，眉眼温和但严肃",
+      "voice": "温柔偏哑的中年女声，音量不大，字字用力",
+      "f0_range": [150, 280]
+    },
+    "同学": {
+      "aliases": ["同桌"],
+      "identity": "18岁中国高三女生，同款蓝白校服，拉链半开，双肩包单肩挎着",
+      "voice": "清亮少女音，语速快，尾音上扬",
+      "f0_range": [150, 320]
+    }
+  },
+  "costumes": {
+    "school_uniform": {
+      "desc": "蓝白色高中运动校服：白色主色、蓝色拼接，立领拉链外套，左胸校徽，深蓝色运动长裤"
+    },
+    "light_homewear": {
+      "desc": "浅灰色家居服，宽松棉质长袖上衣，深色家居长裤，头发松松扎成低马尾"
+    },
+    "homewear": {
+      "desc": "浅色棉质家居服长袖上衣"
+    },
+    "pink_homewear": {
+      "desc": "粉色家居服套装，浅粉色长袖上衣与同色长裤"
+    },
+    "white_top_blue_pants": {
+      "desc": "白色上衣配深蓝色运动长裤"
+    },
+    "gray_hoodie": {
+      "desc": "灰色宽松连帽卫衣，深色休闲长裤，黑框眼镜"
+    },
+    "white_shirt": {
+      "desc": "白色长袖衬衫，深色西裤，黑色单肩双肩包，黑框眼镜；不穿外套"
+    },
+    "white_shirt_coat": {
+      "desc": "白色衬衫外搭黑色西装外套，深色长裤，黑框眼镜"
+    },
+    "dark_long_coat": {
+      "desc": "深墨绿色长款大衣，内搭浅色上衣，深色长裤"
+    },
+    "homewear_thick": {
+      "desc": "浅灰色厚家居卫衣，宽松长袖"
+    },
+    "homewear_knit": {
+      "desc": "家居针织开衫，头发简单束起"
+    },
+    "screen_only": {
+      "desc": "画面只出现手/手机屏幕，不出现角色全身；屏幕内人物服装与对应段一致"
+    },
+    "hand_only": {
+      "desc": "画面只出现手部，不出现角色全身"
+    }
+  },
+  "segments": {
+    "1": {
+      "costume": {"张艺果": "school_uniform", "同学": "school_uniform"},
+      "speakers": ["张艺果", "同学"],
+      "start_frame": "KF01_教室刷题.png"
+    },
+    "2": {
+      "costume": {"张艺果": "school_uniform", "同学": "school_uniform"},
+      "speakers": ["张艺果", "同学"],
+      "start_frame": "KF02_走廊背影.png"
+    },
+    "3": {
+      "costume": {"张艺果": "light_homewear", "妈妈": "homewear_knit"},
+      "speakers": ["张艺果", "妈妈"],
+      "start_frame": "KF03_深夜台灯.png"
+    },
+    "4": {
+      "costume": {"张艺果": "homewear", "妈妈": "homewear_knit"},
+      "speakers": ["张艺果", "妈妈"],
+      "start_frame": "KF04_客厅僵局.png"
+    },
+    "5": {
+      "costume": {"张艺果": "screen_only"},
+      "speakers": ["张艺果", "陈屿"],
+      "start_frame": "KF05_手机提问.png"
+    },
+    "6": {
+      "costume": {"陈屿": "gray_hoodie"},
+      "speakers": ["陈屿"],
+      "start_frame": "KF06_出租屋.png"
+    },
+    "7": {
+      "costume": {"陈屿": "white_shirt"},
+      "speakers": ["陈屿"],
+      "start_frame": "KF07_早高峰地铁.png",
+      "forbid_added_layers": true,
+      "note": "首帧 KF07 只有白衬衫；原提示词的‘深色薄外套’与首帧冲突，守卫会标记并可选修复。"
+    },
+    "8": {
+      "costume": {"张艺果": "screen_only"},
+      "speakers": ["张艺果", "陈屿"],
+      "start_frame": "KF08_讲题屏幕.png"
+    },
+    "9": {
+      "costume": {"张艺果": "pink_homewear", "陈屿": "gray_hoodie"},
+      "speakers": ["张艺果", "陈屿"],
+      "start_frame": "KF09_分屏晚安.png"
+    },
+    "10": {
+      "costume": {"张艺果": "white_top_blue_pants", "妈妈": "homewear_knit"},
+      "speakers": ["妈妈", "张艺果"],
+      "start_frame": "KF10_妈妈翻手机.png"
+    },
+    "11": {
+      "costume": {"陈屿": "gray_hoodie"},
+      "speakers": ["陈屿"],
+      "start_frame": "KF11_拒收消息.png"
+    },
+    "12": {
+      "costume": {"张艺果": "school_uniform"},
+      "speakers": ["张艺果"],
+      "start_frame": "KF12_雨夜窗.png"
+    },
+    "13": {
+      "costume": {"张艺果": "light_homewear"},
+      "speakers": ["张艺果", "陈屿"],
+      "start_frame": "KF13_消息亮起.png"
+    },
+    "14": {
+      "costume": {"张艺果": "homewear_thick", "陈屿": "white_shirt"},
+      "speakers": ["张艺果", "陈屿"],
+      "start_frame": "KF14_学习计划.png"
+    },
+    "15": {
+      "costume": {"张艺果": "school_uniform", "陈屿": "white_shirt_coat"},
+      "speakers": ["张艺果", "陈屿"],
+      "start_frame": "KF15_黄昏通话.png"
+    },
+    "16": {
+      "costume": {"张艺果": "school_uniform", "陈屿": "dark_long_coat"},
+      "speakers": ["张艺果", "陈屿"],
+      "start_frame": "KF16_雨后远景.png"
+    }
+  },
+  "reference_audio": null,
+  "voice_reference_supported": false,
+  "known_blind_spots": [
+    "seg_13/seg_15 末段女主脸型与五官的细微变化肉眼可见，但 SFace 余弦仍高于阈值，未触发 fail；需人工复核。",
+    "seg_14 男女主主要出现在手机小窗，人脸小于 48px，只能报不可核验。",
+    "seg_16 女主为远景小人脸，SFace 无法稳定核验；该段只对男主做了低置信度检查。",
+    "seg_10 画面自带烧录字幕，属于字幕/后期问题，不在本守卫职责内（由 JEV has_subtitle 检测）。"
+  ],
+  "notes": "H3 模板 MiniMaxH3ImageToVideo 没有音频参考输入；音色只能文字描述 + 事后 F0 检查。"
+}
